@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1in1(M)</title>
+
+</head>
+<body>
+
+    <h1>1 in 1 (Million)</h1>  
+    <h4>Try to guess the number between 1 and 1.000.000</h4>
+    <h6>To restart reload the page</h6>
+
+    <p id="messageGen">...</p>
+
+    <button id="generator">Generate the number</button>
+
+    <br><br>
+
+    <input id="input" type="text" placeholder="Enter your guess here"><button id="guess">Try to guess</button>
+
+    <h2 id="result"></h2>
+
+    <img id="nerdImg" src="img/nerd.jpg" alt=""><img id="surpriseImg" src="img/surprise.jpg" alt="">
+
+</body>
+<script>
+
+    //Generator
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+    //
+
+    var generator = document.getElementById("generator");
+    var message = document.getElementById("messageGen");
+    var input = document.getElementById("input");
+    var guess = document.getElementById("guess");
+
+    var nerd = document.getElementById("nerdImg")
+    var surprise = document.getElementById("surpriseImg")
+
+    var result = document.getElementById("result")
+
+    nerd.style.display = "none"
+    surprise.style.display = "none"
+
+    generator.addEventListener("click", function(){
+
+        num = getRandomInt(1000001)
+        console.log(num * 2)
+        message.innerHTML = "The number has been generated, good luck soldier..."
+
+    });
+
+    guess.addEventListener("click", function(){
+
+        let inputValue = input.value;
+
+        console.log (inputValue);
+
+        //
+
+        if (inputValue >= 1 && inputValue <= 1000000){
+            if (inputValue == num){
+                console.log("WHAT, YOU WON")
+                nerd.style.display = "none"
+                surprise.style.display = "block"
+                result.innerHTML = "Well, consider yourelf lucky"
+            }else{
+                console.log("Maybe next time?")
+                surprise.style.display = "none"
+                nerd.style.display = "block"
+                result.innerHTML = "Nuh uh"
+            }
+        }else{
+                result.innerHTML = "You must enter a valid value"
+        }
+        
+    });
+
+</script>
+</html>
