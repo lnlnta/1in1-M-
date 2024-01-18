@@ -11,7 +11,7 @@
 
     <h1>1 in 1 (Million)</h1>  
     <h4>Try to guess the number between 1 and 1.000.000</h4>
-    <h6>To restart reload the page</h6>
+    <h6>F5 to restart</h6>
 
     <p id="messageGen">...</p>
 
@@ -20,6 +20,8 @@
     <br><br>
 
     <input id="input" type="text" placeholder="Enter your guess here"><button id="guess">Try to guess</button>
+    <p>Number of tries:</p>
+    <p id="tries">0</p>
 
     <h2 id="result"></h2>
 
@@ -31,18 +33,20 @@
     //Generator
     function getRandomInt(max) {
         return Math.floor(Math.random() * max);
-    }
+    };
     //
 
     var generator = document.getElementById("generator");
     var message = document.getElementById("messageGen");
     var input = document.getElementById("input");
     var guess = document.getElementById("guess");
+    
+    var tries = document.getElementById("tries");
 
-    var nerd = document.getElementById("nerdImg")
-    var surprise = document.getElementById("surpriseImg")
+    var nerd = document.getElementById("nerdImg");
+    var surprise = document.getElementById("surpriseImg");
 
-    var result = document.getElementById("result")
+    var result = document.getElementById("result");
 
     nerd.style.display = "none"
     surprise.style.display = "none"
@@ -74,6 +78,7 @@
                 surprise.style.display = "none"
                 nerd.style.display = "block"
                 result.innerHTML = "Nuh uh"
+                tries.innerHTML = tries + 1;
             }
         }else{
                 result.innerHTML = "You must enter a valid value"
