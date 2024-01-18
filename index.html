@@ -42,6 +42,7 @@
     var guess = document.getElementById("guess");
     
     var tries = document.getElementById("tries");
+    var triesNum = 0;
 
     var nerd = document.getElementById("nerdImg");
     var surprise = document.getElementById("surpriseImg");
@@ -78,7 +79,8 @@
                 surprise.style.display = "none"
                 nerd.style.display = "block"
                 result.innerHTML = "Nuh uh"
-                tries.innerHTML = tries + 1;
+                triesNum + 1;
+                tries.innerHTML = triesNum;
             }
         }else{
                 result.innerHTML = "You must enter a valid value"
