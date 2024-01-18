@@ -7,6 +7,70 @@
     <title>1in1(M)</title>
 
 </head>
+
+<style>
+
+    :root{
+        --bck-color: #bc88ff;
+        --tries-size : 24px;
+    }
+
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: var(--bck-color);
+        text-align: center;
+    }
+
+    h1{
+        font-weight: bold;
+        background: #3c2e79;
+        color: white;
+
+        padding-top: 24px;
+        padding-bottom: 24px;
+
+        margin-left: 30%;
+        margin-right: 30%;
+
+        border-radius: 24px;
+    }
+
+    button{
+        border-radius: 0px;
+        border-style: solid;
+        border-color: white;
+
+        color: white;
+
+        background-color: #3c2e79;
+
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    button:hover{
+        border-color: #e373ff;
+        color: #e373ff;
+    }
+
+    input{
+        border-style: solid;
+        border-radius: 0px;
+
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #tries{
+        font-size: var(--tries-size);
+    }
+
+</style>
+
 <body>
 
     <h1>1 in 1 (Million)</h1>  
@@ -25,10 +89,15 @@
 
     <h2 id="result"></h2>
 
-    <img id="nerdImg" src="img/nerd.jpg" alt=""><img id="surpriseImg" src="img/surprise.jpg" alt="">
+    <img id="nerdImg" src="img/nerd.jpeg" alt=""><img width="256px" id="surpriseImg" src="img/surprise.gif" alt="">
 
 </body>
 <script>
+
+    console.log("Whatcha trying to do? No, the solution isn't here")
+
+    //What do you think you're doing editing the code?
+    //If you win the game like this, it isn't funny anymore.
 
     //Generator
     function getRandomInt(max) {
@@ -55,7 +124,6 @@
     generator.addEventListener("click", function(){
 
         num = getRandomInt(1000001)
-        console.log(num * 2)
         message.innerHTML = "The number has been generated, good luck soldier..."
 
     });
@@ -64,23 +132,21 @@
 
         let inputValue = input.value;
 
-        console.log (inputValue);
-
-        //
-
         if (inputValue >= 1 && inputValue <= 1000000){
             if (inputValue == num){
-                console.log("WHAT, YOU WON")
+                console.log("You got plenty of time, right?")
                 nerd.style.display = "none"
                 surprise.style.display = "block"
                 result.innerHTML = "Well, consider yourelf lucky"
             }else{
-                console.log("Maybe next time?")
+                console.log("Another one...")
                 surprise.style.display = "none"
                 nerd.style.display = "block"
                 result.innerHTML = "Nuh uh"
                 triesNum += 1;
                 tries.innerHTML = triesNum;
+
+                var triesSize = "64";
             }
         }else{
                 result.innerHTML = "You must enter a valid value"
